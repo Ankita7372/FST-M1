@@ -5,9 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Activity3 {
+public class Activity4_2 {
     public static void main(String[] args) {
-
         // Create a new instance of the Firefox driver
         WebDriver driver = new FirefoxDriver();
 
@@ -18,23 +17,23 @@ public class Activity3 {
         String pageTitle = driver.getTitle();
         System.out.println(pageTitle);
 
-        //Find the input fields
-        WebElement firstName = driver.findElement(By.id("firstName"));
-        WebElement lastName = driver.findElement(By.id("lastName"));
-        //Enter text
+        //Find the input fields and enter text
+        WebElement firstName = driver.findElement(By.xpath("//input[@id = 'firstName']"));
+        WebElement lastName = driver.findElement(By.xpath("//input[@id = 'lastName']"));
+
         firstName.sendKeys("Saahil");
         lastName.sendKeys("Sharma");
 
         //Enter the email
-        driver.findElement(By.id("email")).sendKeys("test@example.com");
+        driver.findElement(By.xpath("//input[@id = 'email']")).sendKeys("test@example.com");
 
         //Enter the contact number
-        driver.findElement(By.id("number")).sendKeys("1234567890");
+        driver.findElement(By.xpath("//input[@id = 'number']")).sendKeys("1234567890");
+
+        //Enter Message
+        driver.findElement(By.xpath("//textarea")).sendKeys("This is my message");
 
         //Click Submit
-        driver.findElement(By.cssSelector(".ui.green.button")).click();
-
-        //Close the browser
-        driver.close();
+        driver.findElement(By.xpath("//input[contains(@class, 'green')]")).click();
     }
 }
